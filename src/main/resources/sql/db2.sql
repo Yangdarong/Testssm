@@ -90,3 +90,11 @@ CREATE UNIQUE INDEX `tb_lend_index` ON `tb_lend`(`lend_id`);
 CREATE UNIQUE INDEX `tb_admin_book_index` ON `tb_admin_book`(`ab_id`);
 -- 2.6 创建管理员_学生表索引
 CREATE UNIQUE INDEX `tb_admin_reader` ON `tb_admin_reader`(`ar_id`);
+
+---- 3 创建视图
+-- 3.1 创建读者表视图
+CREATE VIEW `tb_reader_view` AS SELECT * FROM `tb_reader`;
+-- 3.2 创建图书表视图
+CREATE VIEW `tb_book_view` AS SELECT * FROM `tb_book`;
+-- 3.3 创建管理员表视图
+CREATE VIEW `tb_admin_view` AS SELECT * FROM `tb_admin`;
