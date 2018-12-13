@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.testssm.dao.UserDao">
+    <resultMap id="userResultMap" type="User">
+        <id property="userId" column="u_id" />
+        <result property="userLoginName" column="u_loginname"/>
+        <result property="userPassword" column="u_password"/>
+        <result property="userNickName" column="u_nickname"/>
+        <result property="userPhone" column="u_phone"/>
+        <result property="userAddress" column="u_address"/>
+    </resultMap>
+    <insert id="addUser" parameterType="User">
+        INSERT INTO
+        tb_user(u_id, u_loginname, u_password, u_nickname, u_phone, u_address)
+        VALUES
+        (#{userId}, #{userLoginName}, #{userPassword}, #{userNickName}, #{userPhone}, #{userAddress})
+    </insert>
+
+    <select id="userLogin" resultMap="userResultMap" parameterType="User">
+        SELECT u_id,u_loginname,u_password,u_nickname,u_phone,u_address
+        FROM tb_user
+        WHERE u_loginname=#{userLoginName} AND u_password=#{userPassword}
+    </select>
+
+    <!--<select id="" resultMap="userResultMap">
+
+    </select>-->
+</mapper>

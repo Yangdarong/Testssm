@@ -1,0 +1,11 @@
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE IF EXISTS `tb_user`;
+CREATE TABLE  `tb_user`(
+  `u_id` INT PRIMARY KEY AUTO_INCREMENT COMMENT '用户id',
+  `u_loginname` VARCHAR(50) UNIQUE COMMENT '用户登录名',
+  `u_password` VARCHAR(18) NOT NULL COMMENT '用户密码',
+  `u_nickname` VARCHAR(18) COMMENT '用户昵称',
+  `u_phone` VARCHAR(18) COMMENT '用户电话',
+  `u_address` VARCHAR(255) COMMENT '用户地址'
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='User表';
